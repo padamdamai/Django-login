@@ -1,0 +1,28 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+<div>
+    <form method="POST" action="">
+        {% csrf_token %}
+
+        <!-- {% for fields in register  %}
+            {{register.label}}
+            {{register}}
+        {% endfor %} -->
+        {{register.username.label}}
+        {{register.username}}
+
+        {{register.email.label}}
+        {{register.email}}
+
+        {{register.password1.label}}
+        {{register.password1}}
+
+        {{register.password2.label}}
+        {{register.password2}}
+        <input type="submit" value="submit">
+    </form>
+</div>
+
+{% endblock content %}
