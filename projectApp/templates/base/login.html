@@ -4,13 +4,23 @@
 <div>
     <form method="POST">
         {% csrf_token %}
-        <!-- {{login.as_p}} -->
-        <input type="text" name="username" placeholder="username">
-        <input type="text" name="password" placeholder="password">
-        
+        <div class="form-group">
+          <label for="exampleInputEmail1">Username</label>
+          <input type="email" class="form-control" name="username" aria-describedby="emailHelp" placeholder="username">
+        </div>
+        <div class="form-group">
+          <label for="exampleInputPassword1">Password</label>
+          <input type="password" class="form-control" name="password" placeholder="Password">
+        </div>
+    
+        <button type="submit" class="btn btn-primary">Submit</button>
+        {% if messages %}
 
-        <input type="submit" value="Submit">
-    </form>
+        {% for message in messages %}
+          {{message}}
+        {% endfor %}
+        {% endif %}
+      </form>
 </div>
 
 {% endblock content %}
